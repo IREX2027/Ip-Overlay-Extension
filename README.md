@@ -42,24 +42,14 @@ When Safe Mode is enabled the extension will:
 - Limit displayed information to locally-detectable addresses where possible.
 - Refrain from injecting the overlay into pages that appear to have strict security policies or where injection fails.
 
-How to enable Safe Mode
+Safe Mode activation
 
-- Preferred: Use the extension UI (popup or settings) and toggle **Safe Mode** if a toggle is available.
-- Alternative (developer): open the extension's service worker console and set the storage flag manually:
+Safe Mode is automatically enabled for certain high-security sites where external network calls or DOM injection are likely to be blocked or undesirable. The extension detects site security posture (for example, strict Content Security Policy or other indicators) and will limit its behavior on those sites.
 
-1. Open the Extensions page (`chrome://extensions` or `edge://extensions`).
-2. Find **IP Address Overlay**, click **Details**, then under "Inspect views" open the Service Worker (or "background page") console.
-3. Run the following in the console to enable Safe Mode:
+Notes:
 
-```javascript
-chrome.storage.local.set({ safeMode: true });
-```
-
-To disable Safe Mode:
-
-```javascript
-chrome.storage.local.set({ safeMode: false });
-```
+- There is no manual toggle in the extension by default; Safe Mode activation is automatic for affected sites.
+- If you need different behavior for a specific site, disable the extension for that site via the browser's site controls or update extension settings (if available).
 
 Notes about Safe Mode
 

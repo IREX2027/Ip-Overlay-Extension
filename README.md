@@ -68,12 +68,3 @@ Troubleshooting
 - Public IP not shown: check network connectivity and whether Safe Mode is enabled.
 
 Contributing
-
-If you want to add an explicit Options page or popup toggle for Safe Mode, open a PR that:
-
-- Adds `options_ui` or a `default_popup` in `manifest.json`.
-- Adds a small UI to read/write `chrome.storage.local.safeMode`.
-
-License
-
-Include your license here.

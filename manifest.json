@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "IP Address Overlay",
+  "version": "1.0",
+  "description": "Shows public and private IPv4/IPv6 addresses in the corner of your browser.",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["https://api.ipify.org/*", "https://api64.ipify.org/*"],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    },
+    "default_title": "IP Overlay"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": [
+        "*://*.lego.com/*",
+        "*://*.bambulab.com/*",
+        "*://*.google.com/*",
+        "*://*.youtube.com/*",
+        "*://*.facebook.com/*",
+        "*://*.twitter.com/*",
+        "*://*.microsoft.com/*",
+        "*://*.apple.com/*",
+        "*://*.github.com/*",
+        "*://*.bankofamerica.com/*",
+        "*://*.chase.com/*",
+        "*://*.paypal.com/*",
+        "*://*.shopify.com/*",
+        "*://*.amazon.com/*"
+      ],
+      "js": ["overlay.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://*.lego.com/*",
+        "*://*.bambulab.com/*",
+        "*://*.google.com/*",
+        "*://*.youtube.com/*",
+        "*://*.facebook.com/*",
+        "*://*.twitter.com/*",
+        "*://*.microsoft.com/*",
+        "*://*.apple.com/*",
+        "*://*.github.com/*",
+        "*://*.bankofamerica.com/*",
+        "*://*.chase.com/*",
+        "*://*.paypal.com/*",
+        "*://*.shopify.com/*",
+        "*://*.amazon.com/*"
+      ],
+      "js": ["overlay_safe.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "128": "icons/icon.png"
+  }
+}
